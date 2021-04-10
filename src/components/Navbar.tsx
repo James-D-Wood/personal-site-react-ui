@@ -1,11 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { ReactNode } from 'react';
 
-export default function Navbar() {
+interface NavbarProps {
+    leftChildren?: ReactNode,
+    rightChildren?: ReactNode,
+}
+
+export default function Navbar(props: NavbarProps) {
+  const { leftChildren, rightChildren } = props;
+
   return (
-    <div className="space-x-3">
-      <Link to="/">Home</Link>
-      <Link to="/journal">Journal</Link>
+    <div className="py-4 px-40 flex justify-between bg-green-500">
+      {leftChildren}
+      {rightChildren}
     </div>
   );
 }
+
+Navbar.defaultProps = {
+  leftChildren: <div />,
+  rightChildren: <div />,
+};

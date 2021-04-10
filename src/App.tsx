@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Journal from './components/Journal';
 import Navbar from './components/Navbar';
@@ -8,7 +8,14 @@ import Navbar from './components/Navbar';
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Navbar
+        rightChildren={(
+          <div className="space-x-3">
+            <Link to="/">Home</Link>
+            <Link to="/journal">Journal</Link>
+          </div>
+        )}
+      />
       <Switch>
         <Route path="/journal">
           <Journal />
