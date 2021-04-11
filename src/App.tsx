@@ -4,6 +4,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Journal from './components/Journal';
 import Navbar from './components/Navbar';
+import JournalEntry from './components/JournalEntry';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
         )}
       />
       <Switch>
+        <Route path="/journal/entries/:date/:title">
+          <JournalEntry />
+        </Route>
         <Route path="/journal">
           <Journal />
         </Route>
