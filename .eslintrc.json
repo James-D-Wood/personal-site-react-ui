@@ -40,9 +40,11 @@
             "error",
             "ignorePackages",
             {
-                "tsx": "never"
+                "tsx": "never",
+                "ts": "never"
             }
         ],
-        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "react/jsx-one-expression-per-line": ["error", { "allow": "single-child" }]
     }
 }
