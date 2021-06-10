@@ -9,14 +9,14 @@ import JournalEntry from './components/JournalEntry';
 function App() {
   return (
     <div className="App">
-      <Navbar
+      {/* <Navbar
         rightChildren={(
           <div className="space-x-3">
             <Link to="/">Home</Link>
             <Link to="/journal">Journal</Link>
           </div>
         )}
-      />
+      /> */}
       <Switch>
         <Route path="/journal/entries/:date/:title">
           <JournalEntry />
