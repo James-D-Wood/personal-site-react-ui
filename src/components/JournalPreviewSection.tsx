@@ -30,12 +30,13 @@ export default function JournalPreviewSection(props: JournalPreviewSectionProps)
 
   useEffect(() => {
     setEntryPreviews(entries.map((entry) => (
-      <li key={entry.title}>
-        <p>{entry.title}</p>
-        <p>{entry.timestamp}</p>
-        <Link to={`/journal/entries/${urlDate(entry.timestamp)}/${urlTitle(entry.title)}`}>
-          Show Entry
+      <li key={entry.title} className="space-y-0.5">
+        <Link to={`/journal/entries/${urlDate(entry.timestamp)}/${urlTitle(entry.title)}`} className="font-mono text-purple-light text-lg font-bold text-left">
+          {entry.title}
         </Link>
+        <p className="font-sans text-white text-sm text-justify">
+          {entry.description}
+        </p>
       </li>
     )));
   }, [entries]);
@@ -44,10 +45,10 @@ export default function JournalPreviewSection(props: JournalPreviewSectionProps)
     isLoading
       ? <Loader />
       : (
-        <>
-          <h2><Link to="/journal">Journal</Link></h2>
-          <ul>{ entryPreviews }</ul>
-        </>
+        <div className="w-10/12">
+          {/* <h2><Link to="/journal">Journal</Link></h2> */}
+          <ul>{entryPreviews}</ul>
+        </div>
       )
   );
 }
