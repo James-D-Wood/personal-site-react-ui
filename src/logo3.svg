@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="355px" height="240px" viewBox="0 0 355 240" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 2</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(0.000000, -0.000000)">
+            <rect id="Rectangle" stroke="#BCC0FB" fill="#5A61C7" x="23.5" y="21.2792208" width="331" height="218.220779" rx="8"></rect>
+            <rect id="Rectangle" stroke="#BCC0FB" fill="#707AFA" x="14.5" y="11.2792208" width="331" height="218.220779" rx="8"></rect>
+            <rect id="Rectangle" stroke="#BCC0FB" fill="#BCC0FB" x="4.5" y="0.5" width="331" height="218.220779" rx="8"></rect>
+            <text id="{jw}" font-family="Inconsolata-Regular_Bold, Inconsolata" font-size="144" font-weight="bold" fill="#373C7A">
+                <tspan x="26" y="151.12987">{jw}</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
