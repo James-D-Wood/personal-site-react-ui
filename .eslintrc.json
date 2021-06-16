@@ -42,7 +42,9 @@
             "ignorePackages",
             {
                 "tsx": "never",
-                "ts": "never"
+                "ts": "never",
+                "jsx": "never",
+                "js": "never"
             }
         ],
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
