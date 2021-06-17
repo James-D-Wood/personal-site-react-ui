@@ -16,8 +16,8 @@ export default function Navbar(props: NavbarProps) {
   const [isShowingMobileMenu, setIsShowingMobileMenu] = useState(false);
 
   return (
-    <div className="fixed w-full">
-      <div className="px-8 py-4 bg-purple-dark items-center shadow md:px-40 flex justify-between bg-green-500">
+    <div className="fixed w-full pointer-events-none">
+      <div className="px-8 py-4 bg-purple-dark items-center shadow md:px-12 flex justify-between bg-green-500 pointer-events-auto">
         {logo}
         <button
           type="button"
@@ -29,6 +29,7 @@ export default function Navbar(props: NavbarProps) {
       <MobileMenu
         isVisible={isShowingMobileMenu}
         menuItems={menuItems}
+        setIsVisible={setIsShowingMobileMenu}
       />
     </div>
   );
