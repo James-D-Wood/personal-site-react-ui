@@ -1,9 +1,11 @@
 import React, { ReactElement } from 'react';
+import TerminalIcon from '../icons/TerminalIcon';
 
 export default function NotImplemented(): ReactElement {
   return (
-    <div className="flex items-center justify-center">
-      <p className="text-xxl font-sans text-white">Not Yet Implemented</p>
+    <div className="flex flex-col items-center justify-center h-screen space-y-4">
+      <TerminalIcon className="text-yellow w-36 h-36" />
+      <p className="text-xxl font-sansBold text-white w-3/5 text-center">This Page is in Progress</p>
     </div>
   );
 }
