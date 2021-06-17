@@ -1,8 +1,6 @@
-import React, { ReactNode, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import MenuIcon from '../icons/MenuIcon';
-import menuIcon from '../icons/menu.svg';
-import MenuItem from '../types/menuItems';
+import { MenuItem } from '../utils/MenuItems';
 import MobileMenu from './MobileMenu';
 
 interface NavbarProps {
@@ -10,7 +8,7 @@ interface NavbarProps {
   menuItems: MenuItem[];
 }
 
-export default function Navbar(props: NavbarProps) {
+export default function Navbar(props: NavbarProps): JSX.Element {
   const { logo, menuItems } = props;
 
   const [isShowingMobileMenu, setIsShowingMobileMenu] = useState(false);
@@ -23,7 +21,7 @@ export default function Navbar(props: NavbarProps) {
           type="button"
           onClick={() => { setIsShowingMobileMenu(!isShowingMobileMenu); }}
         >
-          <MenuIcon className={`w-6 transition-colors duration-1000 ${isShowingMobileMenu ? 'text-white' : 'text-purple-light'}`} />
+          <MenuIcon className={`w-6 transition-colors duration-500 ${isShowingMobileMenu ? 'text-white' : 'text-purple-light'}`} />
         </button>
       </div>
       <MobileMenu

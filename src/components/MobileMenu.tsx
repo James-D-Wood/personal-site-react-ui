@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MenuItem from '../types/menuItems';
+import { MenuItem } from '../utils/MenuItems';
 
 interface MobileMenuProps {
   isVisible: boolean;
@@ -26,12 +26,12 @@ export default function MobileMenu(props: MobileMenuProps): JSX.Element {
 
   return (
     <div
-      className={`bg-black transition-colors duration-1000 ${
+      className={`bg-black transition-colors duration-500 ${
         isVisible ? 'bg-opacity-75' : 'bg-opacity-0'
       }`}
     >
       <div
-        className={`bg-purple-darker transition-all duration-1000 ${
+        className={`bg-purple-darker transition-all duration-500 ${
           isVisible ? 'ml-0' : 'ml-full'
         } border-l-8 border-purple-light h-screen pointer-events-auto`}
       >
