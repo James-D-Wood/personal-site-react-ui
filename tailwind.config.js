@@ -2,7 +2,11 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      margin: {
+        full: '100%',
+      },
+    },
     fontFamily: {
       sansBold: ['Ubuntu-Bold', 'ui-sans-serif', '\"Helvetica Neue\"', 'Arial', 'sans-serif'],
       sans: ['Ubuntu', 'ui-sans-serif', '\"Helvetica Neue\"', 'Arial', 'sans-serif'],
