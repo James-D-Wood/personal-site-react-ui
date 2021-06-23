@@ -14,8 +14,8 @@ export default function Home(): JSX.Element {
   ));
 
   return (
-    <div className="container h-screen mx-auto flex flex-col items-center justify-center space-y-1.5">
-      <img className="rounded-full border-4 border-purple-light shadow-xl w-3/5" src={ProfilePicture} alt="A Beautiful Portrait of the Author of this Website" />
+    <div className="container h-screen mx-auto flex flex-col items-center justify-center space-y-1.5 lg:space-y-2">
+      <img className="rounded-full border-4 border-purple-light shadow-xl w-3/5 lg:w-1/3 lg:border-8 lg:shadow-2xl" src={ProfilePicture} alt="A Beautiful Portrait of the Author of this Website" />
       <p className="text-xxl font-sansBold text-white">James Wood</p>
       <p className="text-xl font-mono text-purple-light">
         Software Engineer
