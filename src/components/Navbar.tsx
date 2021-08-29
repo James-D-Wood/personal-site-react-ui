@@ -17,7 +17,7 @@ export default function Navbar(props: NavbarProps): JSX.Element {
   const menuLinks = menuItems.map((menuItem: MenuItem) => (
     <li key={menuItem.displayText.split(' ').join()}>
       <Link
-        className="text-white hover:text-purple-light font-sansBold text-lg flex flex-row items-center"
+        className="text-white hover:text-purple-light transition-colors duration-500 font-sansBold text-lg flex flex-row items-center"
         to={menuItem.path}
       >
         {/* <div className="text-purple-light mx-4">{menuItem.icon}</div> */}
