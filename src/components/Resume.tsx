@@ -77,16 +77,16 @@ const workExperiences: WorkExperience[] = [
 
 export default function Resume(): JSX.Element {
   const workExperience = workExperiences.map((workExp: WorkExperience) => (
-    <div className="space-y">
-      <a href={workExp.business.href} className="font-sansBold text-white text-lg">{workExp.business.name}</a>
-      <div className="font-mono text-purple text-md flex flex-col sm:flex-row sm:justify-between sm:items-center ">
-        <p className="font-bold">{workExp.position}</p>
-        <p className="text-sm">
+    <div className="leading-snug">
+      <a href={workExp.business.href} className="font-sansBold text-white text-2xl">{workExp.business.name}</a>
+      <div className="font-mono text-purple text-lg flex flex-col sm:flex-row sm:justify-between sm:items-center ">
+        <p className="font-bold text-base">{workExp.position}</p>
+        <p className="text-base">
           {`${workExp.startDate} - ${workExp.endDate}`}
         </p>
       </div>
-      <p className="font-sans text-purple-lighter text-base py-1.5">{workExp.description}</p>
-      <ul className="font-sans text-purple-lighter text-base list-disc pl-6 space-y-1.5">
+      <p className="font-sans text-purple-lighter text-lg py-1.5">{workExp.description}</p>
+      <ul className="font-sans text-purple-lighter text-lg list-disc pl-6 space-y-1.5">
         {workExp.bullets.map((bullet: string) => (
           <li>{bullet}</li>
         ))}
@@ -95,8 +95,8 @@ export default function Resume(): JSX.Element {
   ));
 
   return (
-    <div className="container mx-auto pt-16 pb-4 flex flex-col items-center">
-      <div className="my-6 mx-8 space-y-8">
+    <div className="container mx-auto pt-16 pb-4 flex flex-col items-center px-8">
+      <div className="pt-8 w-full md:w-3/4 max-w-screen-md mx-auto my-6 space-y-8">
         {workExperience}
       </div>
     </div>

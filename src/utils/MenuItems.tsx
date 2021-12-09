@@ -1,10 +1,10 @@
 import React from 'react';
-import BlockquoteRightIcon from '../icons/BlockquoteRightIcon';
+// import BlockquoteRightIcon from '../icons/BlockquoteRightIcon';
 import BookmarkIcon from '../icons/BookmarkIcon';
 import FileEarmarkPersonIcon from '../icons/FileEarmarkPersonIcon';
 import HouseIcon from '../icons/HouseIcon';
-import JournalsIcon from '../icons/JournalsIcon';
 import KanbanIcon from '../icons/KanbanIcon';
+import NotebookIcon from '../icons/NotebookIcon';
 
 export interface MenuItem {
   path: string;
@@ -28,15 +28,15 @@ const menuItems: MenuItem[] = [
     displayText: 'Projects',
     icon: <KanbanIcon />,
   },
+  // {
+  //   path: '/blog',
+  //   displayText: 'Blog',
+  //   icon: <BlockquoteRightIcon />,
+  // },
   {
-    path: '/blog',
-    displayText: 'Blog',
-    icon: <BlockquoteRightIcon />,
-  },
-  {
-    path: '/journal',
-    displayText: 'Dev Journal',
-    icon: <JournalsIcon />,
+    path: '/notebook',
+    displayText: 'Dev Notebook',
+    icon: <NotebookIcon />,
   },
   {
     path: '/reads',

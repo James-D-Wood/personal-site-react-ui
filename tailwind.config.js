@@ -12,14 +12,14 @@ module.exports = {
       sans: ['Ubuntu', 'ui-sans-serif', '\"Helvetica Neue\"', 'Arial', 'sans-serif'],
       mono: ['Inconsolata', 'ui-monospace', '\"Courier New\"', 'monospace'],
     },
-    fontSize: {
-      smol: ['12px', '14px'],
-      sm: ['14px', '17.5px'],
-      base: ['16px', '20px'],
-      lg: ['20px', '22px'],
-      xl: ['24px', '32px'],
-      xxl: ['32px', '32px'],
-    },
+    // fontSize: {
+    //   smol: ['12px', '14px'],
+    //   sm: ['14px', '17.5px'],
+    //   base: ['16px', '20px'],
+    //   lg: ['20px', '22px'],
+    //   xl: ['24px', '32px'],
+    //   xxl: ['32px', '32px'],
+    // },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
