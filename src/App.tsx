@@ -2,9 +2,9 @@ import './App.css';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
-import Journal from './components/Journal';
+import Notebook from './components/Notebook';
 import Navbar from './components/Navbar';
-import JournalEntry from './components/JournalEntry';
+import NotebookEntry from './components/NotebookEntry';
 import Blog from './components/Blog';
 import Resume from './components/Resume';
 import Projects from './components/Projects';
@@ -16,7 +16,7 @@ function App(): JSX.Element {
     <div className="bg-purple-darker min-h-screen font-sans">
       <Navbar
         logo={(
-          <p className="text-white text-md font-mono font-bold text-xxl">
+          <p className="text-white text-md font-mono font-bold text-3xl">
             {'{jw}'}
           </p>
         )}
@@ -32,11 +32,11 @@ function App(): JSX.Element {
         <Route path="/resume">
           <Resume />
         </Route>
-        <Route path="/journal/entries/:date/:title">
-          <JournalEntry />
+        <Route path="/notebook/:title">
+          <NotebookEntry />
         </Route>
-        <Route path="/journal">
-          <Journal />
+        <Route path="/notebook">
+          <Notebook />
         </Route>
         <Route path="/blog">
           <Blog />
