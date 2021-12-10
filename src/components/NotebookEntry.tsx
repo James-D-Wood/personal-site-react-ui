@@ -6,6 +6,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nord } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { NotebookEntryData } from '../types/notebookEntries';
 import Loader from './Loader';
+import API_URL from '../utils/common';
 
 interface NotebookEntryParams {
   date: string,
@@ -18,7 +19,7 @@ export default function NotebookEntry(): JSX.Element {
   const [notebookEntryData, setNotebookEntryData] = useState<NotebookEntryData | null>(null);
 
   useEffect(() => {
-    fetch(`http://192.168.0.17:8080/api/v1/articles/${title}`)
+    fetch(`${API_URL}/api/v1/articles/${title}`)
       .then((response) => response.json())
       .then((data: NotebookEntryData) => {
         console.log(data);
@@ -48,19 +49,23 @@ export default function NotebookEntry(): JSX.Element {
                 components={{
                   h2: (node) => {
                     const { children } = node;
-                    return <h2 className="font-sansBold text-4xl text-white mb-4">{children}</h2>;
+                    return <h2 className="font-sansBold text-4xl text-white py-4">{children}</h2>;
                   },
                   h3: (node) => {
                     const { children } = node;
-                    return <h3 className="font-sansBold text-2xl text-white mb-2">{children}</h3>;
+                    return <h3 className="font-sansBold text-2xl text-white py-2">{children}</h3>;
                   },
                   h4: (node) => {
                     const { children } = node;
-                    return <h4 className="font-sansBold text-xl text-white mb-1.5">{children}</h4>;
+                    return <h4 className="font-sansBold text-xl text-white py-1.5">{children}</h4>;
                   },
                   p: (node) => {
                     const { children } = node;
                     return <p className="font-sans text-lg text-purple-lighter leading-snug mb-1">{children}</p>;
+                  },
+                  a: (node) => {
+                    const { children, href } = node;
+                    return <a href={href} className="font-sans text-lg text-white hover:text-purple transition-colors duration-500 leading-snug mb-1">{children}</a>;
                   },
                   strong: (node) => {
                     const { children } = node;

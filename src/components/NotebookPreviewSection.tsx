@@ -1,6 +1,7 @@
 import React, { ReactElement, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NotebookEntryData } from '../types/notebookEntries';
+import API_URL from '../utils/common';
 import Loader from './Loader';
 
 interface NotebookPreviewSectionProps {
@@ -20,7 +21,7 @@ export default function NotebookPreviewSection(props: NotebookPreviewSectionProp
   const [entryPreviews, setEntryPreviews] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
-    fetch('http://192.168.0.17:8080/api/v1/articles')
+    fetch(`${API_URL}/api/v1/articles`)
       .then((response) => response.json())
       .then((data: NotebookEntryData[]) => {
         setEntries(data.slice(0, props.previewCount));
