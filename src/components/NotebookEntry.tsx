@@ -22,7 +22,6 @@ export default function NotebookEntry(): JSX.Element {
     fetch(`${API_URL}/api/v1/articles/${title}`)
       .then((response) => response.json())
       .then((data: NotebookEntryData) => {
-        console.log(data);
         setNotebookEntryData(data);
         setIsLoading(false);
       })
@@ -59,21 +58,25 @@ export default function NotebookEntry(): JSX.Element {
                     const { children } = node;
                     return <h4 className="font-sansBold text-xl text-white py-1.5">{children}</h4>;
                   },
+                  h5: (node) => {
+                    const { children } = node;
+                    return <h5 className="font-sansBold text-lg text-white py-1.5">{children}</h5>;
+                  },
                   p: (node) => {
                     const { children } = node;
-                    return <p className="font-sans text-lg text-purple-lighter leading-snug mb-1">{children}</p>;
+                    return <p className="font-sans text-lg text-purple-lighter leading-snug py-2">{children}</p>;
                   },
                   a: (node) => {
                     const { children, href } = node;
-                    return <a href={href} className="font-sans text-lg text-white hover:text-purple transition-colors duration-500 leading-snug mb-1">{children}</a>;
+                    return <a href={href} className="font-sans text-lg text-white hover:text-purple transition-colors duration-500 leading-snug">{children}</a>;
                   },
                   strong: (node) => {
                     const { children } = node;
-                    return <strong className="font-sansBold text-lg text-white leading-snug mb-1">{children}</strong>;
+                    return <strong className="font-sansBold text-lg text-white leading-snug">{children}</strong>;
                   },
                   ul: (node) => {
                     const { children } = node;
-                    return <ul className="max-w-screen-md mx-auto leading-snug mb-1 text-lg" style={{ listStyleType: 'circle', listStylePosition: 'inside' }}>{children}</ul>;
+                    return <ul className="max-w-screen-md mx-auto leading-snug text-lg" style={{ listStyleType: 'circle', listStylePosition: 'inside' }}>{children}</ul>;
                   },
                   code: (node) => {
                     const { className, children, inline } = node;
@@ -88,7 +91,7 @@ export default function NotebookEntry(): JSX.Element {
                         {String(children).replace(/\n$/, '')}
                       </SyntaxHighlighter>
                     ) : (
-                      <code className={className}>
+                      <code className={`${className} text-white bg-purple-dark p-0.5 rounded-sm`}>
                         {children}
                       </code>
                     );
