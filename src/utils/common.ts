@@ -1,2 +1,2 @@
-const API_URL = 'http://api.jameswood.dev';
+const API_URL = 'https://api.jameswood.dev';
 export default API_URL;
