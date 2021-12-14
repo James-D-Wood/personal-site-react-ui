@@ -3,7 +3,9 @@ export interface NotebookEntryData {
   title: string,
   uri: string,
   summary: string,
-  body: string
+  body: string,
+  dateCreated: string,
+  dateUpdated?: string,
 }
 
 export default NotebookEntryData;

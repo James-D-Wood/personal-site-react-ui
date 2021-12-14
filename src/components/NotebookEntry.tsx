@@ -40,7 +40,19 @@ export default function NotebookEntry(): JSX.Element {
             <div className="pt-8 w-full md:w-3/4 max-w-screen-md mx-auto">
               <div className="my-8">
                 <h1 className="font-sansBold text-white text-5xl text-center pb-4">{ notebookEntryData.title }</h1>
-                <p className="text-xl text-purple-lighter text-center">{ notebookEntryData.summary }</p>
+                <p className="text-xl text-purple-lighter text-center pb-4">{ notebookEntryData.summary }</p>
+              </div>
+              <div className="my-8">
+                <p className="text-base text-purple-lighter text-left">
+                  <b className="text-white font-sansBold">Originally Posted: </b>
+                  {(new Date(notebookEntryData.dateCreated)).toDateString()}
+                </p>
+                {notebookEntryData.dateUpdated && (
+                  <p className="text-base text-purple-lighter text-left">
+                    <b className="text-white font-sansBold">Last Updated: </b>
+                    {(new Date(notebookEntryData.dateUpdated)).toDateString()}
+                  </p>
+                )}
               </div>
               <ReactMarkdown
                 className="font-sans text-purple-lighter"
