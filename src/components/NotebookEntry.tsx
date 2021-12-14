@@ -25,8 +25,7 @@ export default function NotebookEntry(): JSX.Element {
         setNotebookEntryData(data);
         setIsLoading(false);
       })
-      .catch((reason) => {
-        console.error(reason);
+      .catch(() => {
         setIsLoading(false);
       });
   }, []);

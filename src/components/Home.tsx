@@ -1,8 +1,4 @@
 import React from 'react';
-import EnvelopeFillIcon from '../icons/EnvelopeFillIcon';
-import FileEarmarkPersonFillIcon from '../icons/FileEarmarkPersonFillIcon';
-import GitHubIcon from '../icons/GitHubIcon';
-import LinkedInIcon from '../icons/LinkedInIcon';
 import ProfilePicture from '../images/profile.jpg';
 import socialLinks, { SocialLink } from '../utils/SocialLinks';
 
