@@ -27,7 +27,26 @@ export default function ValueSort(): JSX.Element {
   }, [boardName]);
 
   const onSave = (data: KanbanColumnData[]) => {
-    console.log(data);
+    const newBoard: KanbanBoardData = {
+      name: boardName,
+      columns: data,
+    };
+    fetch(
+      `${API_URL}/api/v1/value-sort/boards/${boardName}`,
+      {
+        method: 'PUT',
+        body: JSON.stringify(newBoard),
+      },
+    )
+      .then((response) => response.json())
+      .then((board: KanbanBoardData) => {
+        const cols = board.columns.sort((col1, col2) => col1.order - col2.order);
+        setValueSortColumns(cols);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setIsLoading(false);
+      });
   };
 
   return (
