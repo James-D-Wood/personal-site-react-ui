@@ -6,6 +6,7 @@ export interface KanbanCardData {
 export interface KanbanColumnData {
     title: string,
     cards: KanbanCardData[],
+    order: number,
 }
 
 export interface KanbanBoardData {

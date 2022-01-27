@@ -17,7 +17,8 @@ export default function ValueSort(): JSX.Element {
     fetch(`${API_URL}/api/v1/value-sort/boards/${boardName}`)
       .then((response) => response.json())
       .then((board: KanbanBoardData) => {
-        setValueSortColumns(board.columns);
+        const cols = board.columns.sort((col1, col2) => col1.order - col2.order);
+        setValueSortColumns(cols);
         setIsLoading(false);
       })
       .catch(() => {
