@@ -10,6 +10,7 @@ import Resume from './components/Resume';
 import Projects from './components/Projects';
 import menuItems from './utils/MenuItems';
 import Reads from './components/Reads';
+import ValueSort from './components/valueSort/ValueSort';
 
 function App(): JSX.Element {
   return (
@@ -40,6 +41,9 @@ function App(): JSX.Element {
         </Route>
         <Route path="/blog">
           <Blog />
+        </Route>
+        <Route path="/value-sort/:boardName">
+          <ValueSort />
         </Route>
         <Route path="/">
           <Home />
