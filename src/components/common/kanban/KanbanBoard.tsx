@@ -66,11 +66,12 @@ export default function KanbanBoard(props: KanbanBoardProps): JSX.Element {
       <div className="w-full h-screen mt-8">
         <div className="flex flex-row overflow-x-auto h-full w-full">
           {columns.map((col: KanbanColumnData, i: number) => (
-            <KanbanColumn index={i} title={col.title}>
+            <KanbanColumn key={col.order} index={i} title={col.title}>
               {col.cards.map((card: KanbanCardData, j: number) => (
                 <KanbanFlipCard
                   id={card.body}
                   index={j}
+                  key={card.body}
                   front={
                     (
                       <p className="font-sansBold text-xl text-purple-dark">
