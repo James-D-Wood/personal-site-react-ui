@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import AlertContext, { AlertLevel } from '../../contexts/alert-context';
 import API_URL from '../../utils/common';
 import KanbanBoard from '../common/kanban/KanbanBoard';
 import { KanbanBoardData, KanbanColumnData } from '../common/kanban/types';
@@ -10,30 +11,36 @@ interface ValueSortParams {
 
 export default function ValueSort(): JSX.Element {
   const { boardName } = useParams<ValueSortParams>();
+  const { setAlert } = useContext(AlertContext);
   const [valueSortColumns, setValueSortColumns] = useState<KanbanColumnData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${API_URL}/api/v1/value-sort/boards/${boardName}`)
-      .then((response) => response.json())
-      .then((board: KanbanBoardData) => {
-        board.columns.sort((col1, col2) => col1.order - col2.order);
-        board.columns.forEach((col) => {
-          col.cards.sort((card1, card2) => {
-            let value = 0;
-            if (card1.body > card2.body) {
-              value = 1;
-            } else if (card1.body < card2.body) {
-              value = -1;
-            }
-            return value;
-          });
-        });
-        setValueSortColumns(board.columns);
-        setIsLoading(false);
-      })
-      .catch(() => {
-        setIsLoading(false);
+      .then((resp) => {
+        if (resp.status === 200) {
+          resp.json()
+            .then((board: KanbanBoardData) => {
+              board.columns.sort((col1, col2) => col1.order - col2.order);
+              board.columns.forEach((col) => {
+                col.cards.sort((card1, card2) => {
+                  let value = 0;
+                  if (card1.body > card2.body) {
+                    value = 1;
+                  } else if (card1.body < card2.body) {
+                    value = -1;
+                  }
+                  return value;
+                });
+              });
+              setValueSortColumns(board.columns);
+            });
+        } else {
+          resp.text()
+            .then((respMessage) => setAlert({
+              message: `(${resp.status}): ${respMessage}`,
+              level: AlertLevel.ERROR,
+            }));
+        }
       });
   }, [boardName]);
 
@@ -49,15 +56,19 @@ export default function ValueSort(): JSX.Element {
         body: JSON.stringify(newBoard),
       },
     )
-      .then((response) => response.json())
-      .then((board: KanbanBoardData) => {
-        const cols = board.columns.sort((col1, col2) => col1.order - col2.order);
-        setValueSortColumns(cols);
-        setIsLoading(false);
+      .then((resp) => {
+        if (resp.status !== 200) {
+          resp.text()
+            .then((respMessage) => setAlert({
+              message: `(${resp.status}): ${respMessage}`,
+              level: AlertLevel.ERROR,
+            }));
+        }
       })
-      .catch(() => {
-        setIsLoading(false);
-      });
+      .catch((err) => setAlert({
+        message: err,
+        level: AlertLevel.ERROR,
+      }));
   };
 
   return (
@@ -91,7 +102,7 @@ export default function ValueSort(): JSX.Element {
           for full instructions and guiding questions.
         </p>
       </div>
-      { !isLoading && <KanbanBoard onSave={onSave} columns={valueSortColumns} /> }
+      { valueSortColumns.length > 0 && <KanbanBoard onSave={onSave} columns={valueSortColumns} /> }
     </div>
   );
 }
