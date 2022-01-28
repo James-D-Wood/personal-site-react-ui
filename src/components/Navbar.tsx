@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AlertContext from '../contexts/alert-context';
 import MenuIcon from '../icons/MenuIcon';
 import { MenuItem } from '../utils/MenuItems';
+import AlertPopover from './AlertPopover';
 import MobileMenu from './MobileMenu';
 
 interface NavbarProps {
@@ -11,6 +13,7 @@ interface NavbarProps {
 
 export default function Navbar(props: NavbarProps): JSX.Element {
   const { logo, menuItems } = props;
+  const { alert, setAlert } = useContext(AlertContext);
 
   const [isShowingMobileMenu, setIsShowingMobileMenu] = useState(false);
 
@@ -41,6 +44,7 @@ export default function Navbar(props: NavbarProps): JSX.Element {
           <MenuIcon className={`w-6 transition-colors duration-500 ${isShowingMobileMenu ? 'text-white' : 'text-purple-light'}`} />
         </button>
       </div>
+      { alert && <AlertPopover alert={alert} setAlert={setAlert} /> }
       <MobileMenu
         isVisible={isShowingMobileMenu}
         menuItems={menuItems}

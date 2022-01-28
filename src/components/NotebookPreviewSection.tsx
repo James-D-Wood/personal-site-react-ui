@@ -12,12 +12,13 @@ export default function NotebookPreviewSection(props: NotebookPreviewSectionProp
   const [isLoading, setIsLoading] = useState(true);
   const [entries, setEntries] = useState<NotebookEntryData[]>([]);
   const [entryPreviews, setEntryPreviews] = useState<React.ReactNode[]>([]);
+  const { previewCount } = props;
 
   useEffect(() => {
     fetch(`${API_URL}/api/v1/articles`)
       .then((response) => response.json())
       .then((data: NotebookEntryData[]) => {
-        setEntries(data.slice(0, props.previewCount));
+        setEntries(data.slice(0, previewCount));
         setIsLoading(false);
       })
       .catch(() => {

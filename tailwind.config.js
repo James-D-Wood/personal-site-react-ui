@@ -1,4 +1,5 @@
 module.exports = {
+  content: ['./src/**/*.{html,js}'],
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -25,6 +26,11 @@ module.exports = {
       current: 'currentColor',
       white: {
         DEFAULT: '#FFFFFF',
+      },
+      slate: {
+        50: '#f8fafc',
+        100: '#f1f5f9',
+        200: '#e2e8f0',
       },
       yellow: {
         light: '#FADD70',
