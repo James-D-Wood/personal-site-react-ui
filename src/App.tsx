@@ -12,6 +12,7 @@ import menuItems from './utils/MenuItems';
 import Reads from './components/Reads';
 import ValueSort from './components/valueSort/ValueSort';
 import AlertContext, { Alert } from './contexts/alert-context';
+import ProjectBoardList from './components/projectBoards/ProjectBoardList';
 
 function App(): JSX.Element {
   const [alert, setAlert] = useState<Alert | null>(null);
@@ -45,6 +46,9 @@ function App(): JSX.Element {
           </Route>
           <Route path="/blog">
             <Blog />
+          </Route>
+          <Route path="/boards">
+            <ProjectBoardList />
           </Route>
           <Route path="/value-sort/:boardName">
             <ValueSort />
