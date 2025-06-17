@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* Needed for backward compatibility */
+@config "../tailwind.config.js";
+
+@theme {
+  --font-sansBold: 'Ubuntu-Bold', 'ui-sans-serif', '\"Helvetica Neue\"', 'Arial', 'sans-serif';
+  --font-sans: 'Ubuntu', 'ui-sans-serif', '\"Helvetica Neue\"', 'Arial', 'sans-serif';
+  --font-mono: 'Inconsolata', 'ui-monospace', '\"Courier New\"', 'monospace';
+}
+
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: local('Inconsolata'), url(./fonts/Inconsolata-VariableFont_wdth,wght.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: local('Ubuntu'), url(./fonts/Ubuntu-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Ubuntu-Bold';
+  src: local('Ubuntu-Bold'), url(./fonts/Ubuntu-Bold.ttf) format('truetype');
+}
